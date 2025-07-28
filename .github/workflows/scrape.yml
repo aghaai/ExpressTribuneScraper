@@ -2,8 +2,11 @@ name: Scrape Tribune News
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # every 1 minute for testing; revert to '0 * * * *' for hourly
+    - cron: '*/1 * * * *'  # every 1 minute for testing; change to '0 * * * *' for hourly
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -24,4 +27,4 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add tribune_news.xlsx
           git commit -m 'Update news' || echo 'No changes'
-          git push
+          git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:${{ github.ref_name }}
