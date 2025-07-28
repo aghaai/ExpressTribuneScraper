@@ -2,7 +2,7 @@ name: Scrape Tribune News
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every hour (UTC); change to '*/15 * * * *' for every 15 min
+    - cron: '*/1 * * * *'  # every 1 minute for testing; revert to '0 * * * *' for hourly
   workflow_dispatch:
 
 jobs:
