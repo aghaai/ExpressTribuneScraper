@@ -58,7 +58,6 @@ def save_to_excel(articles, filename="tribune_news.xlsx"):
     print(f"Saved {len(articles)} articles to {filename}")
 
 if __name__ == '__main__':
-    while True:
-        scrape_tribune_world()
-        print("Sleeping for 10 minutes...")
-        time.sleep(600)  # 600 seconds = 10 minutes
+    scrape_tribune_world()
+    print("Sleeping for 1 minute to check error handling...")
+    time.sleep(60)  # Sleep for 1 minute for testing
